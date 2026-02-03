@@ -106,7 +106,7 @@ npm install
 Crie um arquivo `.env.local` na raiz do projeto:
 
 ```env
-GEMINI_API_KEY=sua_chave_api_aqui
+VITE_GEMINI_API_KEY=sua_chave_api_aqui
 ```
 
 4. **Execute o projeto em modo de desenvolvimento**
@@ -116,6 +116,46 @@ npm run dev
 ```
 
 O aplicativo estará disponível em `http://localhost:3000`
+
+## 🌐 Deploy no Vercel
+
+### Opção 1: Deploy via Dashboard (Recomendado)
+
+1. **Acesse [vercel.com](https://vercel.com)** e faça login
+2. Clique em **"Add New Project"**
+3. **Importe o repositório** do GitHub
+4. **Configure as variáveis de ambiente:**
+   - Clique em **"Environment Variables"**
+   - Adicione: `VITE_GEMINI_API_KEY` com sua chave API
+   - Selecione todos os ambientes (Production, Preview, Development)
+5. Clique em **"Deploy"**
+
+### Opção 2: Deploy via CLI
+
+```bash
+# Instale o Vercel CLI
+npm install -g vercel
+
+# Login no Vercel
+vercel login
+
+# Deploy
+vercel
+
+# Adicione a variável de ambiente
+vercel env add VITE_GEMINI_API_KEY
+
+# Deploy em produção
+vercel --prod
+```
+
+### Configurações Automáticas
+
+O projeto já está configurado com `vercel.json`:
+- **Framework**: Vite (detectado automaticamente)
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **SPA Routing**: Todas as rotas redirecionam para `index.html`
 
 ## 📦 Scripts Disponíveis
 
@@ -151,6 +191,7 @@ offshore-maintenance-pro/
 ├── index.html               # Template HTML
 ├── vite.config.ts           # Configuração do Vite
 ├── tsconfig.json            # Configuração TypeScript
+├── vercel.json              # Configuração do Vercel
 ├── package.json             # Dependências e scripts
 └── .env.local.example       # Template de variáveis de ambiente
 ```
@@ -187,6 +228,7 @@ O sistema gera planos para os seguintes instrumentos:
 
 - ✅ Nunca commite o arquivo `.env.local` com suas chaves
 - ✅ Use `.env.local.example` como referência
+- ✅ No Vercel, use Environment Variables para a chave API
 - ✅ Mantenha suas dependências atualizadas
 - ✅ Revise sempre os planos gerados antes do uso operacional
 
