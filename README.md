@@ -11,6 +11,8 @@
 [![Vite](https://img.shields.io/badge/Vite-6.2.0-646cff)](https://vitejs.dev/)
 [![Gemini AI](https://img.shields.io/badge/Gemini-AI-orange)](https://ai.google.dev/)
 
+### 🚀 [**Acesse a Demonstração ao Vivo**](https://aistudio.google.com/apps/drive/18KPSVp7PAgfUf6wSw_1qem7ch3VArNkz?showPreview=true&showAssistant=true&fullscreenApplet=true) 🚀
+
 </div>
 
 <br/>
@@ -144,7 +146,7 @@ offshore-maintenance-pro/
 │   ├── App.tsx              # Componente principal
 │   ├── index.tsx            # Entry point
 │   └── index.css            # Estilos globais e impressão
-├── imagens/                 # Assets de imagens
+├── images/                  # Assets de imagens
 │   └── github-header.png    # Banner do repositório
 ├── index.html               # Template HTML
 ├── vite.config.ts           # Configuração do Vite
