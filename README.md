@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="imagens/github-header.png" alt="Offshore Maintenance Pro Banner" width="100%" />
+  <img src="images/github-header.png" alt="Offshore Maintenance Pro Banner" width="100%" />
 </div>
 
 <br/>
