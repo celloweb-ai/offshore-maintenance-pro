@@ -108,7 +108,7 @@ export const generateMaintenancePlan = async (
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-1.5-pro', // Corrected: Use valid Gemini model name
+      model: 'gemini-2.0-flash-exp', // Corrected: Use valid model for @google/genai SDK
       contents: prompt,
       config: {
         responseMimeType: "application/json",
