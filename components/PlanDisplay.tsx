@@ -83,6 +83,18 @@ const CALIBRATION_TOOLTIPS: Record<string, string> = {
   'Tolerância': 'Margem de erro aceitável durante a calibração antes de requerer ajuste.'
 };
 
+const FIELD_TOOLTIPS: Record<string, string> = {
+  'fieldObservations': 'Registre aqui qualquer anomalia física detectada em campo (ex: vibração excessiva, corrosão severa no suporte, infiltração no invólucro) que possa afetar a integridade futura.',
+  'rootCause': 'Identifique a causa primária de qualquer falha detectada (ex: umidade em terminais devido à falha de vedação, drift eletrônico por fim de vida útil, saturação por processo). Fundamental para indicadores MTBF.',
+  'generalObservations': 'Informações logísticas ou técnicas complementares, como necessidade de troca de cabeamento em próxima parada ou sugestão de melhoria no isolamento térmico.',
+  'engConclusion': 'Atestado final da engenharia sobre a aptidão do instrumento para retorno à operação segura, considerando os resultados dos testes e a criticidade do processo.',
+  'techReviewer': 'Identificação do profissional especializado que revisou os parâmetros técnicos e garantiu a conformidade com as normas ISA e NRs.',
+  'techReviewComments': 'Parecer detalhado da revisão técnica, validando se os ranges e procedimentos aplicados estão corretos para a aplicação atual do ativo.',
+  'supName': 'Nome completo do supervisor ou autoridade técnica que valida a execução da tarefa e libera a área para operação.',
+  'supCarimbo': 'Registro funcional ou carimbo técnico que atesta a competência legal do aprovador para validar intervenções em sistemas industriais.',
+  'supDate': 'Data oficial de encerramento e liberação da ordem de manutenção. Marca o início do novo ciclo de periodicidade preventiva.'
+};
+
 const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
   const [fieldObservations, setFieldObservations] = useState('');
   
@@ -106,6 +118,7 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
   const [attemptedPrint, setAttemptedPrint] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false); // Estado para download
   const [logEntries, setLogEntries] = useState<LogEntry[]>([]);
+  const [isLogOpen, setIsLogOpen] = useState(false); // Accordion state
   
   const contentRef = useRef<HTMLDivElement>(null); // Ref para o container principal
 
@@ -342,7 +355,6 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
       { id: 'technicalReview', label: 'Comentários da Revisão', value: technicalReview },
       { id: 'technicalReviewDate', label: 'Data da Revisão', value: technicalReviewDate },
       { id: 'engConclusion', label: 'Parecer Detalhado Engenharia', value: engConclusion },
-      { id: 'technicalReviewDate', label: 'Data da Revisão', value: technicalReviewDate },
       { id: 'rootCause', label: 'Causa Raiz / Diagnóstico', value: rootCause },
       { id: 'generalObservations', label: 'Observações Gerais', value: generalObservations },
       { id: 'equipmentStatus', label: 'Status do Equipamento', value: equipmentStatus },
@@ -753,7 +765,7 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
           </div>
         </div>
 
-        {/* Segurança - MOVED HERE */}
+        {/* Segurança */}
         {plan.safetyPrecautions && plan.safetyPrecautions.length > 0 && (
           <div 
             className="bg-amber-50 border-l-8 border-amber-500 rounded-r-xl p-6 shadow-md mt-8 print-avoid-break"
@@ -797,8 +809,44 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
             </ul>
           </div>
         </div>
+
+        {/* Análise de Falhas e Diagnóstico Técnico */}
+        <div className="mt-12 print-avoid-break">
+           <h3 className="text-md font-bold text-slate-900 border-b-2 border-slate-800 pb-2 mb-6 uppercase tracking-wider flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-slate-600" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.334-.398-1.817a1 1 0 00-1.487-.876 6.752 6.752 0 00-3.326 5.71c0 3.793 3.067 6.86 6.86 6.86 3.793 0 6.86-3.067 6.86-6.86a6.752 6.752 0 00-3.326-5.71 1 1 0 00-1.487.876c0 .483.07 1.137.398 1.817.36.742.75 1.15 1.134 1.29a31.383 31.383 0 01-.613-3.58c-.226-.966-.506-1.93-.84-2.734a12.192 12.192 0 00-.57-1.116c-.208-.322-.477-.65-.822-.88z" clipRule="evenodd" />
+              </svg>
+              Análise de Falhas e Diagnóstico Técnico
+           </h3>
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex flex-col">
+                 <div className="flex items-center mb-2">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mr-2">Causa Raiz / Diagnóstico</span>
+                    <TechTooltip title="Análise de Falha" content={FIELD_TOOLTIPS['rootCause']}>
+                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-slate-400 cursor-help" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                    </TechTooltip>
+                 </div>
+                 <TechTooltip title="Análise de Falha" content={FIELD_TOOLTIPS['rootCause']} position="bottom">
+                    <textarea value={rootCause} onChange={(e) => setRootCause(e.target.value)} placeholder="Descreva a análise técnica da falha..." className="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm no-print min-h-[100px]" data-html2canvas-ignore="true" />
+                 </TechTooltip>
+                 <div className="hidden print-only border border-slate-300 rounded p-2 min-h-[60px] font-mono text-sm" style={{ display: isDownloading ? 'block' : 'none' }}>{rootCause || 'Nenhuma falha reportada.'}</div>
+              </div>
+              <div className="flex flex-col">
+                 <div className="flex items-center mb-2">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mr-2">Observações Gerais</span>
+                    <TechTooltip title="Notas Complementares" content={FIELD_TOOLTIPS['generalObservations']}>
+                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-slate-400 cursor-help" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+                    </TechTooltip>
+                 </div>
+                 <TechTooltip title="Notas Complementares" content={FIELD_TOOLTIPS['generalObservations']} position="bottom">
+                    <textarea value={generalObservations} onChange={(e) => setGeneralObservations(e.target.value)} placeholder="Notas técnicas adicionais..." className="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm no-print min-h-[100px]" data-html2canvas-ignore="true" />
+                 </TechTooltip>
+                 <div className="hidden print-only border border-slate-300 rounded p-2 min-h-[60px] font-mono text-sm" style={{ display: isDownloading ? 'block' : 'none' }}>{generalObservations || 'Sem observações adicionais.'}</div>
+              </div>
+           </div>
+        </div>
         
-        {/* Nova Seção: Revisão Técnica Especializada */}
+        {/* Revisão Técnica Especializada */}
         <div className="mt-12 print-avoid-break bg-slate-50 border border-slate-200 rounded-xl p-6">
           <div className="flex justify-between items-center mb-4 border-b border-slate-200 pb-2">
             <h3 className="text-md font-bold text-slate-900 uppercase tracking-wider flex items-center">
@@ -820,15 +868,16 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
                <div className="space-y-4">
                  <div>
                     <label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Nome do Revisor Técnico</label>
-                    <input 
-                      type="text" 
-                      value={technicalReviewer} 
-                      onChange={(e) => setTechnicalReviewer(e.target.value)} 
-                      placeholder="Engenheiro / Técnico Responsável"
-                      className="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
-                      data-html2canvas-ignore="true"
-                    />
-                    {/* Fallback para PDF quando editando */}
+                    <TechTooltip title="Revisão Técnica" content={FIELD_TOOLTIPS['techReviewer']}>
+                       <input 
+                         type="text" 
+                         value={technicalReviewer} 
+                         onChange={(e) => setTechnicalReviewer(e.target.value)} 
+                         placeholder="Engenheiro / Técnico Responsável"
+                         className="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                         data-html2canvas-ignore="true"
+                       />
+                    </TechTooltip>
                     <p className="hidden print-only font-bold text-slate-800 border-b border-slate-200 pb-1" style={{ display: isDownloading ? 'block' : 'none' }}>{technicalReviewer || '__________________________'}</p>
                  </div>
                  <div>
@@ -840,20 +889,20 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
                       className="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                       data-html2canvas-ignore="true"
                     />
-                    {/* Fallback para PDF */}
                     <p className="hidden print-only font-mono text-slate-800 border-b border-slate-200 pb-1" style={{ display: isDownloading ? 'block' : 'none' }}>{technicalReviewDate ? new Date(technicalReviewDate).toLocaleDateString('pt-BR') : '___/___/_____'}</p>
                  </div>
                </div>
                <div>
                   <label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Parecer / Comentários Técnicos</label>
-                  <textarea 
-                    value={technicalReview} 
-                    onChange={(e) => setTechnicalReview(e.target.value)} 
-                    placeholder="Observações sobre normas, condições operacionais ou ajustes necessários..."
-                    className="w-full h-32 bg-white border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none resize-none"
-                    data-html2canvas-ignore="true"
-                  />
-                  {/* Fallback para PDF */}
+                  <TechTooltip title="Parecer da Revisão" content={FIELD_TOOLTIPS['techReviewComments']} position="bottom">
+                    <textarea 
+                      value={technicalReview} 
+                      onChange={(e) => setTechnicalReview(e.target.value)} 
+                      placeholder="Observações sobre normas, condições operacionais ou ajustes necessários..."
+                      className="w-full h-32 bg-white border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                      data-html2canvas-ignore="true"
+                    />
+                  </TechTooltip>
                   <div className="hidden print-only h-32 bg-transparent rounded-lg p-0 text-sm text-slate-700 border border-slate-300 font-medium" style={{ display: isDownloading ? 'block' : 'none' }}>{technicalReview || '(Espaço reservado para parecer técnico)'}</div>
                </div>
             </div>
@@ -907,7 +956,6 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
         <div className="mt-12 print-break-before">
           <h3 className="text-md font-bold text-slate-900 border-b-2 border-slate-900 pb-2 mb-6 uppercase tracking-wider">Validação da Manutenção</h3>
           
-          {/* Agrupamento para evitar quebra entre inputs e aprovação de segurança */}
           <div className="space-y-8 print-avoid-break" style={{ breakInside: 'avoid', pageBreakInside: 'avoid' }}>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 no-print" data-html2canvas-ignore="true">
               <label className="flex items-center space-x-4 cursor-pointer">
@@ -925,14 +973,18 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
             <div className="space-y-4">
               <div className="flex flex-col text-[10px]">
                 <span className="font-bold text-slate-500 uppercase mb-2">Observações Detalhadas de Campo:</span>
-                <textarea value={fieldObservations} onChange={(e) => setFieldObservations(e.target.value)} placeholder="Notas de campo..." className="w-full bg-slate-50 border border-slate-200 rounded-lg p-4 text-sm no-print" data-html2canvas-ignore="true" />
-                <div className="hidden print-only border border-slate-300 rounded p-2 min-h-[40px] font-mono" style={{ display: isDownloading ? 'block' : 'none' }}>{fieldObservations || 'Nenhuma observação registrada.'}</div>
+                <TechTooltip title="Notas de Campo" content={FIELD_TOOLTIPS['fieldObservations']} position="bottom">
+                  <textarea value={fieldObservations} onChange={(e) => setFieldObservations(e.target.value)} placeholder="Notas de campo..." className="w-full bg-slate-50 border border-slate-200 rounded-lg p-4 text-sm no-print" data-html2canvas-ignore="true" />
+                </TechTooltip>
+                <div className="hidden print-only border border-slate-300 rounded p-2 min-h-[40px] font-mono text-sm" style={{ display: isDownloading ? 'block' : 'none' }}>{fieldObservations || 'Nenhuma observação registrada.'}</div>
               </div>
 
               <div className="flex flex-col text-[10px]">
                 <span className="font-bold text-slate-500 uppercase mb-2">Parecer Técnico Final (Engenharia):</span>
-                <textarea ref={engConclusionRef} value={engConclusion} onChange={(e) => setEngConclusion(e.target.value)} className={`${getFieldClass(engConclusion)} min-h-[60px] no-print`} data-html2canvas-ignore="true" />
-                <div className="hidden print-only border border-slate-300 rounded p-2 min-h-[60px] font-mono" style={{ display: isDownloading ? 'block' : 'none' }}>{engConclusion || 'Aguardando parecer final.'}</div>
+                <TechTooltip title="Parecer de Engenharia" content={FIELD_TOOLTIPS['engConclusion']} position="bottom">
+                  <textarea ref={engConclusionRef} value={engConclusion} onChange={(e) => setEngConclusion(e.target.value)} className={`${getFieldClass(engConclusion)} min-h-[60px] no-print`} data-html2canvas-ignore="true" />
+                </TechTooltip>
+                <div className="hidden print-only border border-slate-300 rounded p-2 min-h-[60px] font-mono text-sm" style={{ display: isDownloading ? 'block' : 'none' }}>{engConclusion || 'Aguardando parecer final.'}</div>
               </div>
             </div>
           </div>
@@ -977,22 +1029,91 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({ plan }) => {
                  </TechTooltip>
               </div>
               <div className="flex flex-col mt-4 space-y-2">
-                <input ref={supNomeRef} type="text" placeholder="NOME COMPLETO" value={supervisor.nome} onChange={(e) => setSupervisor({ ...supervisor, nome: e.target.value })} className={getFieldClass(supervisor.nome)} />
+                <TechTooltip title="Nome do Supervisor" content={FIELD_TOOLTIPS['supName']} position="top">
+                  <input ref={supNomeRef} type="text" placeholder="NOME COMPLETO" value={supervisor.nome} onChange={(e) => setSupervisor({ ...supervisor, nome: e.target.value })} className={getFieldClass(supervisor.nome)} />
+                </TechTooltip>
                 <div className="flex space-x-2">
-                    <input ref={supCarimboRef} type="text" placeholder="Nº CARIMBO" value={supervisor.carimbo} onChange={(e) => setSupervisor({ ...supervisor, carimbo: e.target.value })} className={getFieldClass(supervisor.carimbo)} />
-                    <input 
-                      ref={supDataRef} 
-                      type="date" 
-                      value={supervisor.data} 
-                      onFocus={() => { if(!supervisor.data) setSupervisor({ ...supervisor, data: getCurrentDate() }) }}
-                      onChange={(e) => setSupervisor({ ...supervisor, data: e.target.value })} 
-                      className={getFieldClass(supervisor.data)} 
-                      aria-label="Data da Supervisão" 
-                    />
+                    <TechTooltip title="Carimbo Funcional" content={FIELD_TOOLTIPS['supCarimbo']} position="top" align="left">
+                      <input ref={supCarimboRef} type="text" placeholder="Nº CARIMBO" value={supervisor.carimbo} onChange={(e) => setSupervisor({ ...supervisor, carimbo: e.target.value })} className={getFieldClass(supervisor.carimbo)} />
+                    </TechTooltip>
+                    <TechTooltip title="Data de Liberação" content={FIELD_TOOLTIPS['supDate']} position="top" align="right">
+                      <input 
+                        ref={supDataRef} 
+                        type="date" 
+                        value={supervisor.data} 
+                        onFocus={() => { if(!supervisor.data) setSupervisor({ ...supervisor, data: getCurrentDate() }) }}
+                        onChange={(e) => setSupervisor({ ...supervisor, data: e.target.value })} 
+                        className={getFieldClass(supervisor.data)} 
+                        aria-label="Data da Supervisão" 
+                      />
+                    </TechTooltip>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* LOG DE RASTREABILIDADE (Audit Trail) */}
+        <div className="mt-16 no-print border-t border-slate-200 pt-8" data-html2canvas-ignore="true">
+           <div 
+              className="bg-slate-100 rounded-xl border border-slate-200 overflow-hidden cursor-pointer transition-all hover:border-slate-300"
+              onClick={() => setIsLogOpen(!isLogOpen)}
+           >
+              <div className="p-4 flex items-center justify-between">
+                 <div className="flex items-center">
+                    <div className="bg-slate-800 p-1.5 rounded mr-3">
+                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clipRule="evenodd" />
+                       </svg>
+                    </div>
+                    <div>
+                       <h4 className="text-sm font-black text-slate-800 uppercase tracking-widest">Log de Rastreabilidade Técnica (Audit Trail)</h4>
+                       <p className="text-[10px] text-slate-500 font-bold uppercase">{logEntries.length} registros de alterações manuais</p>
+                    </div>
+                 </div>
+                 <div className={`transform transition-transform duration-300 ${isLogOpen ? 'rotate-180' : ''}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+                       <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                 </div>
+              </div>
+              
+              {isLogOpen && (
+                 <div className="bg-white border-t border-slate-200 animate-in slide-in-from-top-2 duration-300 overflow-x-auto">
+                    {logEntries.length > 0 ? (
+                       <table className="min-w-full divide-y divide-slate-100 text-left">
+                          <thead className="bg-slate-50">
+                             <tr>
+                                <th className="px-4 py-2 text-[9px] font-black text-slate-400 uppercase">Data/Hora</th>
+                                <th className="px-4 py-2 text-[9px] font-black text-slate-400 uppercase">Usuário</th>
+                                <th className="px-4 py-2 text-[9px] font-black text-slate-400 uppercase">Campo</th>
+                                <th className="px-4 py-2 text-[9px] font-black text-slate-400 uppercase">De</th>
+                                <th className="px-4 py-2 text-[9px] font-black text-slate-400 uppercase">Para</th>
+                             </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                             {logEntries.map((entry) => (
+                                <tr key={entry.id} className="hover:bg-slate-50 transition-colors">
+                                   <td className="px-4 py-2 text-[10px] font-mono text-slate-500 whitespace-nowrap">{entry.timestamp}</td>
+                                   <td className="px-4 py-2 text-[10px] font-bold text-slate-700">{entry.user}</td>
+                                   <td className="px-4 py-2 text-[10px] font-black text-blue-600 uppercase tracking-tighter">{entry.fieldName}</td>
+                                   <td className="px-4 py-2 text-[10px] text-slate-400 italic truncate max-w-[150px]">{entry.oldValue}</td>
+                                   <td className="px-4 py-2 text-[10px] text-slate-800 font-medium truncate max-w-[150px]">{entry.newValue}</td>
+                                </tr>
+                             ))}
+                          </tbody>
+                       </table>
+                    ) : (
+                       <div className="p-8 text-center">
+                          <p className="text-xs text-slate-400 italic">Nenhuma alteração registrada após a criação do documento.</p>
+                       </div>
+                    )}
+                 </div>
+              )}
+           </div>
+           <p className="text-[9px] text-slate-400 mt-2 italic px-2">
+              * O histórico acima registra apenas alterações feitas manualmente nos campos de texto e status. Dados gerados pela IA não constam no log.
+           </p>
         </div>
       </div>
     </div>
