@@ -72,12 +72,20 @@ O **Offshore Maintenance Pro** é uma solução web avançada que revoluciona a 
 
 ### 🔧 Instrumentos Suportados
 
-```
-• Sensores de Nível          • Detectores de Gás (F&G)
-• Transmissores de Pressão  • Analisadores Industriais
-• Válvulas de Controle       • Transmissores de Temperatura
-• Medidores de Vazão        • E muito mais...
-```
+<div align="center">
+
+| Categoria | Instrumentos |
+|:---------:|:-------------|
+| 📉 **Medição de Nível** | Sensores de Nível (Ultrassonic, Radar, Capacitivo) |
+| 📈 **Medição de Pressão** | Transmissores de Pressão (Absoluta, Relativa, Diferencial) |
+| 🌡️ **Medição de Temperatura** | Transmissores de Temperatura (Termopar, RTD) |
+| 💨 **Medição de Vazão** | Medidores de Vazão (Magnético, Vortex, Ultrassonic) |
+| 🔧 **Controle** | Válvulas de Controle (Pneumáticas, Elétricas, Solenoides) |
+| 🧪 **Análise** | Analisadores Industriais (pH, Condutividade, O2, etc) |
+| 🔥 **Segurança** | Detectores de Gás e Chama (F&G Systems) |
+| ✨ **Outros** | Posicionadores, Conversores I/P, Smart Devices |
+
+</div>
 
 ### 🏭 Tipos de Plataforma
 
