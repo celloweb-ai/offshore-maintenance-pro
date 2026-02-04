@@ -1,215 +1,390 @@
+<div align="center">
+
 ![Offshore Maintenance Pro](./images/github-header.png)
 
-# Offshore Maintenance Pro
+# 🛢️ Offshore Maintenance Pro
 
-> Sistema inteligente para geração automatizada de planos de manutenção preventiva e checklists técnicos para instrumentação em plataformas offshore (FPSO/Fixas)
+### Sistema Inteligente de Geração de Planos de Manutenção Offshore com IA
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19.2-61dafb)](https://react.dev/)
-[![Google GenAI](https://img.shields.io/badge/Google_GenAI-1.39-orange)](https://ai.google.dev/)
-[![License](https://img.shields.io/badge/license-Private-red)]()
+<p align="center">
+  <em>Automatize a criação de documentação técnica para plataformas FPSO e fixas com inteligência artificial</em>
+</p>
 
-## 🌐 Demo ao Vivo
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Google AI](https://img.shields.io/badge/Google_AI-Gemini_3-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
 
-**➡️ [Acesse a aplicação em produção](https://offshore-maintenance-pro.vercel.app/)**
+### 🌐 **[ACESSAR APLICAÇÃO AO VIVO](https://offshore-maintenance-pro.vercel.app/)** 🌐
 
-Experimente o sistema completo de geração de planos de manutenção com IA em tempo real.
+</div>
 
 ---
 
-## 🎯 Visão Geral
+## 💡 Sobre o Projeto
 
-O **Offshore Maintenance Pro** é uma aplicação web desenvolvida para automatizar a criação de documentação técnica de manutenção preventiva em plataformas offshore. Utilizando inteligência artificial (Google Gemini), o sistema gera planos detalhados em conformidade com Normas Regulamentadoras brasileiras e padrões internacionais (ISA/IEC).
+O **Offshore Maintenance Pro** é uma solução web avançada que revoluciona a criação de planos de manutenção preventiva para instrumentação industrial em ambientes offshore. Utilizando o poder da inteligência artificial **Google Gemini 3 Pro**, o sistema gera automaticamente documentação técnica detalhada, em total conformidade com:
 
-### Principais Características
+- ✅ **Normas Regulamentadoras Brasileiras** (NR-10, NR-13, NR-37)
+- ✅ **Padrões Internacionais** (ISA, IEC, API)
+- ✅ **Melhores Práticas da Indústria Offshore**
 
-- 🤖 **IA Integrada**: Utiliza Google Gemini 3 Pro para geração inteligente de conteúdo técnico
-- 📋 **Checklists Automatizados**: Procedimentos de teste e manutenção específicos por tipo de instrumento
-- 🛢️ **Foco Offshore**: Otimizado para FPSO e plataformas fixas de petróleo e gás
-- ⚙️ **Personalizável**: Configurações de equipe e papéis customizáveis
-- 📊 **Dashboard Gerencial**: Visualização de histórico e métricas de atividade técnica
-- 💾 **Armazenamento Local**: Histórico persistente de planos gerados
-- 🖨️ **Exportação**: Visualização otimizada para impressão e PDF
+<div align="center">
+
+### ✨ **Principais Destaques** ✨
+
+</div>
+
+<table>
+<tr>
+<td width="50%">
+
+#### 🤖 Inteligência Artificial
+- Google Gemini 3 Pro integrado
+- Geração de conteúdo técnico especializado
+- Respostas em JSON estruturado
+
+#### 📊 Dashboard Gerencial
+- Métricas consolidadas em tempo real
+- Histórico de planos gerados
+- Visualização intuitiva de dados
+
+</td>
+<td width="50%">
+
+#### 📋 Checklists Personalizados
+- Procedimentos específicos por instrumento
+- Conformidade com normas técnicas
+- Exportação para PDF via impressão
+
+#### ⚙️ Customização Total
+- Configurações de equipe ajustáveis
+- Papéis e responsabilidades flexíveis
+- Armazenamento local persistente
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Funcionalidades Principais
+
+### 🔧 Instrumentos Suportados
+
+```
+• Sensores de Nível          • Detectores de Gás (F&G)
+• Transmissores de Pressão  • Analisadores Industriais
+• Válvulas de Controle       • Transmissores de Temperatura
+• Medidores de Vazão        • E muito mais...
+```
+
+### 🏭 Tipos de Plataforma
+
+<div align="center">
+
+| FPSO | Plataformas Fixas |
+|:----:|:-----------------:|
+| 🚢 Floating Production Storage and Offloading | ⛱️ Instalações Fixas de Produção |
+| Otimizado para unidades flutuantes | Suporte completo para plataformas jacket |
+
+</div>
+
+### 📝 Conteúdo Técnico Gerado
+
+Cada plano de manutenção inclui automaticamente:
+
+<table>
+<tr>
+<td>
+
+**🔍 Procedimentos de Teste**
+- Step-by-step detalhado
+- Referências normativas
+- Critérios de aceitação
+
+</td>
+<td>
+
+**🔧 Especificações Técnicas**
+- Faixas de operação
+- Parâmetros de calibração
+- Sinais esperados (4-20mA, HART)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**⚠️ Normas de Segurança**
+- Precauções críticas
+- EPIs necessários
+- Procedimentos de lockout
+
+</td>
+<td>
+
+**👥 Equipe e Recursos**
+- Pessoal qualificado
+- Ferramentas específicas
+- Materiais de consumo
+
+</td>
+</tr>
+</table>
+
+---
 
 ## 🏗️ Arquitetura Técnica
 
-### Stack Tecnológico
+<div align="center">
 
-- **Frontend**: React 19.2 + TypeScript 5.8
-- **Build Tool**: Vite 6.2
-- **IA**: Google Generative AI SDK 1.39
-- **Deploy**: Vercel (configuração otimizada)
-- **Estilização**: CSS-in-JS com Tailwind (via index.css)
+### Stack de Tecnologias Modernas
 
-### Estrutura do Projeto
+</div>
+
+<table align="center">
+<tr>
+<td align="center" width="25%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="48" height="48" alt="React"/>
+<br><strong>React 19.2</strong>
+<br><sub>Frontend Framework</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="48" height="48" alt="TypeScript"/>
+<br><strong>TypeScript 5.8</strong>
+<br><sub>Type Safety</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" width="48" height="48" alt="Gemini"/>
+<br><strong>Gemini 3 Pro</strong>
+<br><sub>AI Engine</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" width="48" height="48" alt="Vercel"/>
+<br><strong>Vercel</strong>
+<br><sub>Cloud Deploy</sub>
+</td>
+</tr>
+</table>
+
+### 📁 Estrutura do Projeto
 
 ```
 Offshore_Maintenance_Pro/
-├── components/          # Componentes React modulares
-│   ├── Layout.tsx
-│   ├── PlanForm.tsx
-│   ├── PlanDisplay.tsx
-│   └── SettingsPanel.tsx
-├── services/           # Camada de serviços
-│   └── geminiService.ts  # Integração com Google GenAI
-├── types.ts            # Definições TypeScript
-├── App.tsx             # Componente principal
-├── index.tsx           # Entry point React
-├── index.css           # Estilos globais
-├── vite.config.ts      # Configuração Vite
-├── tsconfig.json       # Configuração TypeScript
-└── vercel.json         # Deploy Vercel
+├── 📂 components/
+│   ├── Layout.tsx           # Layout principal da aplicação
+│   ├── PlanForm.tsx         # Formulário de geração de planos
+│   ├── PlanDisplay.tsx      # Visualização dos planos gerados
+│   └── SettingsPanel.tsx    # Painel de configurações
+├── 🔧 services/
+│   └── geminiService.ts     # Integração com Google Gemini AI
+├── 📝 types.ts              # Definições TypeScript
+├── ⚙️ App.tsx               # Componente raiz
+├── 🎨 index.css            # Estilos globais
+└── 🚀 vite.config.ts       # Configuração do Vite
 ```
 
-## 🚀 Funcionalidades
+---
 
-### 1. Geração de Planos de Manutenção
+## 🛠️ Instalação e Configuração
 
-- **Tipos de Instrumentos Suportados**:
-  - Sensores de nível
-  - Transmissores de pressão
-  - Válvulas de controle
-  - Analisadores
-  - Detectores de gás
-  - E outros instrumentos industriais
+### 📌 Pré-requisitos
 
-- **Tipos de Plataforma**:
-  - FPSO (Floating Production Storage and Offloading)
-  - Plataformas Fixas
+- Node.js 18+ 🟢
+- npm ou yarn 📦
+- Chave API do Google AI Studio 🔑
 
-### 2. Dashboard de Atividades
-
-- Métricas consolidadas (total de planos, plataformas, instrumentos)
-- Histórico detalhado com filtros
-- Visualização rápida de tags monitoradas
-
-### 3. Conteúdo Técnico Gerado
-
-Cada plano inclui:
-
-- 📝 **Procedimentos de Teste**: Step-by-step detalhado
-- 🔧 **Especificações Técnicas**: Parâmetros e calibrações
-- ⚠️ **Normas de Segurança**: Conformidade com NRs
-- 👥 **Equipe Necessária**: Papéis e responsabilidades
-- 📅 **Frequências**: Periodicidade recomendada
-
-## ⚙️ Instalação e Configuração
-
-### Pré-requisitos
-
-- Node.js 18+ 
-- npm ou yarn
-- Chave API do Google Generative AI
-
-### Instalação
+### 💣 Quick Start
 
 ```bash
-# Clone o repositório
+# 1️⃣ Clone o repositório
 git clone https://github.com/celloweb-ai/Offshore_Maintenance_Pro.git
 
-# Navegue até o diretório
+# 2️⃣ Entre no diretório
 cd Offshore_Maintenance_Pro
 
-# Instale as dependências
+# 3️⃣ Instale as dependências
 npm install
 
-# Configure as variáveis de ambiente
+# 4️⃣ Configure a API Key
 cp .env.local.example .env.local
-# Edite .env.local e adicione sua VITE_GEMINI_API_KEY
-```
+# Edite .env.local e adicione sua chave:
+# VITE_GEMINI_API_KEY=sua_chave_api_aqui
 
-### Configuração da API Key
-
-Edite o arquivo `.env.local`:
-
-```env
-VITE_GEMINI_API_KEY=sua_chave_api_aqui
-```
-
-### Execução Local
-
-```bash
-# Modo desenvolvimento
+# 5️⃣ Inicie o servidor de desenvolvimento
 npm run dev
-
-# Build para produção
-npm run build
-
-# Preview do build
-npm run preview
 ```
 
-## 📖 Como Usar
+### 🔑 Obter API Key do Google
 
-1. **Acesse a aplicação** e navegue até a aba "Plans"
-2. **Preencha o formulário**:
-   - Selecione o tipo de instrumento
-   - Escolha o tipo de plataforma
-   - Insira a TAG do equipamento
-3. **Clique em "Gerar Plano"** e aguarde a IA processar
-4. **Visualize o plano gerado** com todos os detalhes técnicos
-5. **Exporte para PDF** usando a função de impressão do navegador
-6. **Consulte o histórico** na aba "Dashboard"
+1. Acesse [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Faça login com sua conta Google
+3. Clique em "Create API Key"
+4. Copie a chave gerada
+5. Cole no arquivo `.env.local`
 
-## 🔒 Segurança
+---
 
-- Chaves API armazenadas em variáveis de ambiente
-- `.gitignore` configurado para proteger credenciais
-- Armazenamento local no navegador para dados sensíveis
+## 📚 Como Usar
 
-## 🛠️ Desenvolvimento
+### Passo a Passo
 
-### Scripts Disponíveis
+<table>
+<tr>
+<td width="33%" align="center">
 
-```json
-{
-  "dev": "vite",           // Servidor de desenvolvimento
-  "build": "vite build",   // Build de produção
-  "preview": "vite preview" // Preview local do build
-}
-```
+**1️⃣ Selecione**
 
-### Estrutura de Tipos
+<img src="https://img.icons8.com/fluency/96/000000/select.png" width="64"/>
 
-O arquivo `types.ts` define interfaces TypeScript para:
+Escolha o tipo de instrumento e plataforma
 
-- `MaintenancePlan`: Estrutura completa do plano
-- `InstrumentType`: Tipos de instrumentos suportados
-- `PlatformType`: FPSO ou Plataforma Fixa
-- `UserSettings`: Configurações personalizáveis
+</td>
+<td width="33%" align="center">
 
-## 🌐 Deploy
+**2️⃣ Gere**
 
-O projeto está configurado para deploy na **Vercel** com otimizações para SPA React.
+<img src="https://img.icons8.com/fluency/96/000000/artificial-intelligence.png" width="64"/>
 
-**Aplicação em Produção**: [https://offshore-maintenance-pro.vercel.app/](https://offshore-maintenance-pro.vercel.app/)
+Clique em "Gerar Plano" e aguarde a IA processar
+
+</td>
+<td width="33%" align="center">
+
+**3️⃣ Exporte**
+
+<img src="https://img.icons8.com/fluency/96/000000/pdf.png" width="64"/>
+
+Visualize e exporte para PDF
+
+</td>
+</tr>
+</table>
+
+### 📹 Screenshots
+
+<details>
+<summary><strong>👁️ Clique para ver exemplos de uso</strong></summary>
+
+<br>
+
+> **Formulário de Geração**
+> - Interface intuitiva
+> - Validação em tempo real
+> - Sugestões automáticas
+
+> **Plano Gerado**
+> - Formatação profissional
+> - Todos os detalhes técnicos
+> - Pronto para impressão
+
+> **Dashboard**
+> - Métricas visuais
+> - Histórico completo
+> - Busca e filtros
+
+</details>
+
+---
+
+## 🔒 Segurança e Privacidade
+
+<div align="center">
+
+| Recurso | Status | Descrição |
+|---------|--------|------------|
+| 🔐 **Variáveis de Ambiente** | ✅ Protegidas | Chaves API armazenadas em `.env.local` |
+| 🚫 **Git Ignore** | ✅ Configurado | Credenciais nunca commitadas |
+| 💾 **Armazenamento Local** | ✅ Browser-only | Dados sensíveis apenas no navegador |
+| 🌐 **HTTPS** | ✅ Forçado | Comunicação criptografada via Vercel |
+
+</div>
+
+---
+
+## 🔬 Scripts Disponíveis
 
 ```bash
-# Deploy via Vercel CLI
-vercel --prod
+npm run dev      # 🟢 Servidor de desenvolvimento (hot reload)
+npm run build    # 📦 Build otimizado para produção
+npm run preview  # 👀 Preview local do build de produção
 ```
 
-## 📋 Roadmap
+---
 
-- [ ] Integração com APIs de ERP/CMMS
-- [ ] Suporte multilíngue (EN/ES)
+## 🗺️ Roadmap
+
+<table>
+<tr>
+<td>
+
+### 🚧 Em Desenvolvimento
+- [ ] Integração com APIs ERP/CMMS
 - [ ] Exportação direta para PDF
+- [ ] Sistema de notificações
+
+</td>
+<td>
+
+### 🔮 Futuro Próximo
+- [ ] Suporte multilíngue (EN/ES)
 - [ ] Templates customizáveis
-- [ ] Integração com bancos de dados externos
-- [ ] Sistema de notificações de manutenção
+- [ ] Banco de dados externo
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Faça um Fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+---
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **celloweb-ai** | [GitHub Profile](https://github.com/celloweb-ai)
+<div align="center">
 
-## 📄 Licença
+**Marcus Vasconcellos (celloweb-ai)**
 
-Este projeto é privado. Todos os direitos reservados.
+[![GitHub](https://img.shields.io/badge/GitHub-celloweb--ai-181717?style=for-the-badge&logo=github)](https://github.com/celloweb-ai)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/marcus-vasconcellos)
+
+*Engenheiro de Automação Industrial | Especialista em Sistemas Offshore*
+
+</div>
+
+---
+
+## 📜 Licença
+
+<div align="center">
+
+Este projeto é **privado**. Todos os direitos reservados © 2026
+
+</div>
 
 ---
 
 <div align="center">
-  
+
+### ⭐ Se este projeto foi útil, considere dar uma estrela!
+
 **Desenvolvido com ❤️ para a indústria offshore brasileira**
+
+🌊 **FPSO** • ⛱️ **Plataformas Fixas** • 🛢️ **O&G Industry** • 🇧🇷 **Made in Brazil**
+
+---
+
+[![Vercel](https://img.shields.io/badge/Hosted_on-Vercel-000000?style=for-the-badge&logo=vercel)](https://offshore-maintenance-pro.vercel.app/)
 
 </div>
