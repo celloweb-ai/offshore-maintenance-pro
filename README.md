@@ -1,3 +1,5 @@
+![Offshore Maintenance Pro](./images/github-header.png)
+
 # IA Industrial: da Automação à Manutenção
 
 ## 📋 Sobre o Treinamento
