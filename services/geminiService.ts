@@ -2,7 +2,14 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { MaintenancePlan, InstrumentType, PlatformType, UserSettings } from "../types.ts";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Corrected: Use import.meta.env with correct Vite environment variable name
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+if (!apiKey) {
+  throw new Error("VITE_GEMINI_API_KEY não configurada. Verifique o arquivo .env.local");
+}
+
+const ai = new GoogleGenAI({ apiKey });
 
 const MAINTENANCE_PLAN_SCHEMA = {
   type: Type.OBJECT,
@@ -101,7 +108,7 @@ export const generateMaintenancePlan = async (
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-preview',
+      model: 'gemini-1.5-pro', // Corrected: Use valid Gemini model name
       contents: prompt,
       config: {
         responseMimeType: "application/json",
@@ -116,6 +123,10 @@ export const generateMaintenancePlan = async (
     };
   } catch (error) {
     console.error("Error generating plan:", error);
+    // Improved error handling with more details
+    if (error instanceof Error) {
+      throw new Error(`Falha ao gerar o plano: ${error.message}`);
+    }
     throw new Error("Falha ao gerar o plano de manutenção. Verifique sua conexão e tente novamente.");
   }
 };
