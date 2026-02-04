@@ -146,23 +146,19 @@ Cada plano de manutenção inclui automaticamente:
 <table align="center">
 <tr>
 <td align="center" width="25%">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="48" height="48" alt="React"/>
-<br><strong>React 19.2</strong>
+<br><strong>⚛️ React 19.2</strong>
 <br><sub>Frontend Framework</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="48" height="48" alt="TypeScript"/>
-<br><strong>TypeScript 5.8</strong>
+<br><strong>🟦 TypeScript 5.8</strong>
 <br><sub>Type Safety</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" width="48" height="48" alt="Gemini"/>
-<br><strong>Gemini 3 Pro</strong>
+<br><strong>✨ Gemini 3 Pro</strong>
 <br><sub>AI Engine</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" width="48" height="48" alt="Vercel"/>
-<br><strong>Vercel</strong>
+<br><strong>▲ Vercel</strong>
 <br><sub>Cloud Deploy</sub>
 </td>
 </tr>
@@ -236,7 +232,7 @@ npm run dev
 
 **1️⃣ Selecione**
 
-<img src="https://img.icons8.com/fluency/96/000000/select.png" width="64"/>
+📝
 
 Escolha o tipo de instrumento e plataforma
 
@@ -245,7 +241,7 @@ Escolha o tipo de instrumento e plataforma
 
 **2️⃣ Gere**
 
-<img src="https://img.icons8.com/fluency/96/000000/artificial-intelligence.png" width="64"/>
+🤖
 
 Clique em "Gerar Plano" e aguarde a IA processar
 
@@ -254,7 +250,7 @@ Clique em "Gerar Plano" e aguarde a IA processar
 
 **3️⃣ Exporte**
 
-<img src="https://img.icons8.com/fluency/96/000000/pdf.png" width="64"/>
+📊
 
 Visualize e exporte para PDF
 
@@ -262,24 +258,24 @@ Visualize e exporte para PDF
 </tr>
 </table>
 
-### 📹 Screenshots
+### 📹 Funcionalidades da Aplicação
 
 <details>
-<summary><strong>👁️ Clique para ver exemplos de uso</strong></summary>
+<summary><strong>👁️ Clique para ver detalhes de uso</strong></summary>
 
 <br>
 
-> **Formulário de Geração**
+> **📋 Formulário de Geração**
 > - Interface intuitiva
 > - Validação em tempo real
 > - Sugestões automáticas
 
-> **Plano Gerado**
+> **📄 Plano Gerado**
 > - Formatação profissional
 > - Todos os detalhes técnicos
 > - Pronto para impressão
 
-> **Dashboard**
+> **📊 Dashboard**
 > - Métricas visuais
 > - Histórico completo
 > - Busca e filtros
