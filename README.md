@@ -19,6 +19,15 @@
 
 </div>
 
+## 🚨 FASE DE TESTES - IMPORTANTE
+
+⚠️ **Deployment Vercel desabilitado** por custos da API Google Gemini (desenvolvimento em andamento).
+
+**✅ Acesse aqui:**
+🌐 [ACESSAR APLICAÇÃO AO VIVO](https://aistudio.google.com/apps/drive/18KPSVp7PAgfUf6wSw_1qem7ch3VArNkz?showPreview=true&showAssistant=true&fullscreenApplet=true)
+
+**Status:** 🧪 Testes ativos | Otimização em progresso | Vercel volta pós-estabilização.
+
 ---
 
 ## 💡 Sobre o Projeto
